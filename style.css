@@ -4,3 +4,52 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+body {
+  background: pink;
+
+}
+.wrapper {
+  margin: 50px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, 265px);
+}
+.wrapper li {
+  list-style: none;
+  height: 250px;
+  background: white;
+  border-radius: 5px;
+  padding: 15px 20px 20px;
+}
+.add-box, .icon, .bottom-content {
+  display: fex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-box {
+  flex-direction: column;
+  justify-content: center;
+}
+.add-box .icon {
+  border: 2px dashed pink;
+  height: 78px;
+  width: 78px;
+  border-radius: 50%;
+  color: pink;
+}
+
+.add-box p {
+  color: pink;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.note p {
+  font-size: 22px;
+  font-weight: 500;
+}
+.note span {
+  color: pink;
+  font-size: 16px;
+  display: block;
+  margin-top: 
+}
