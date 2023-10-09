@@ -21,14 +21,16 @@ body {
   border-radius: 5px;
   padding: 15px 20px 20px;
 }
-.add-box, .icon, .bottom-content {
-  display: fex;
+.add-box, .icon, .bottom-content, 
+settings .menu li {
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .add-box {
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 }
 .add-box .icon {
   border: 2px dashed pink;
@@ -36,6 +38,8 @@ body {
   width: 78px;
   border-radius: 50%;
   color: pink;
+  font-size: 40px;
+  justify-content: center;
 }
 
 .add-box p {
@@ -43,13 +47,66 @@ body {
   font-weight: 500;
   margin-top: 20px;
 }
+.wrapper .note {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
 .note p {
   font-size: 22px;
   font-weight: 500;
 }
 .note span {
-  color: pink;
+  color: grey;
   font-size: 16px;
   display: block;
-  margin-top: 
+  margin-top: 5px;
+}
+.note .bottom-content {
+  border-top: 1px solid pink;
+  padding-top: 10px;
+}
+.bottom-content span {
+  color: grey;
+  font-size: 14px;
+}
+.bottom-content .settings i {
+  color: grey;
+  font-size: 15px;
+  cursor: pointer;
+}
+.settings{
+  position: relative;
+}
+.settings .menu{
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  border: 0;
+  padding: 5px 0;
+  background: white;
+  border-radius: 4px;
+  right: -5px;
+  transform: scale(0);
+  transition: transform 0.2s ease;
+  transform-orgin: bottom right;
+}
+.settings:hover .menu {
+  transform: scale(1);
+}
+.settings .menu li{
+  height: 25px;
+  border-radius: 0;
+  justify-content: flex-start;
+  cursor: pointer;
+  font-size: 16px;
+  
+}
+.menu li:hover {
+  background: white;
+}
+.menu li i {
+  padding-right: 8px;
+
 }
