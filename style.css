@@ -92,7 +92,7 @@ settings .menu li, .popup, header {
   transition: transform 0.2s ease;
   transform-orgin: bottom right;
 }
-.settings:hover .menu {
+.settings.show .menu {
   transform: scale(1);
 }
 .settings .menu li{

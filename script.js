@@ -13,21 +13,23 @@ addBox.addEventListener("click", () => {
   popupBox.classList.add("show");
 });
 closeIcon.addEventListener("click", () => {
+  titleTag.value = "";
+  descTag.value = "";
   popupBox.classList.remove("show");
 } );
 
 function showNotes(){
+  document.querySelectorAll(".note").forEach(note => note.remove());
   notes.forEach((note) => {
     let liTag = `<li class="note">
                 <div class="details">
-                  <p>This is a Title</p>
-                  <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet sed delectus iusto provident voluptate earum impedit quia assumenda esse enim consequuntur, placeat, quae facere eaque nobis! Velit necessitatibus odio eius?
-                  </span>
+                  <p>${note.title}</p>
+                  <span>${note.description}</span>
                 </div>
                 <div class="botton-content">
-                    <span>April 3, 2022</span>
+                    <span>${note.date}</span>
                     <div class="settings"></div>
-                    <i class="il uil-ellipsis-h"></i>
+                    <i onclick="showMenu(this)" class="uil-uil-ellipsis-h"></i>
                     <ul class="menu">
                     <li><i class="uil uil-pen"></i>Edit</li>
                     <li><i class="uil uil-trash"></i>Delete</li>
@@ -39,6 +41,15 @@ function showNotes(){
   })
 }
 showNotes();
+
+function showMenu(elem) {
+  elem.parentElement.classList.add("show");
+  document.addEventListener("click", e => {
+    if(e.target.tagName != "I" || e.target !+ elam) {
+      elam.parentElement.classList.remove("show");
+    }
+  })
+}
 
 addBtn.addEventListener("click", e => {
   e.preventDefault();
@@ -59,6 +70,7 @@ addBtn.addEventListener("click", e => {
    notes.push(noteInfo);
    localStorage.setItem("notes", JSON.stringify(notes));
    closeIcon.click();
+   showNotes();
   }
 
 });
