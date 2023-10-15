@@ -16,6 +16,30 @@ closeIcon.addEventListener("click", () => {
   popupBox.classList.remove("show");
 } );
 
+function showNotes(){
+  notes.forEach((note) => {
+    let liTag = `<li class="note">
+                <div class="details">
+                  <p>This is a Title</p>
+                  <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet sed delectus iusto provident voluptate earum impedit quia assumenda esse enim consequuntur, placeat, quae facere eaque nobis! Velit necessitatibus odio eius?
+                  </span>
+                </div>
+                <div class="botton-content">
+                    <span>April 3, 2022</span>
+                    <div class="settings"></div>
+                    <i class="il uil-ellipsis-h"></i>
+                    <ul class="menu">
+                    <li><i class="uil uil-pen"></i>Edit</li>
+                    <li><i class="uil uil-trash"></i>Delete</li>
+                  </ul>
+                </div>
+                </div>
+              </li>`;
+              addBox.insertAdjacentHTML("afterend", liTag);
+  })
+}
+showNotes();
+
 addBtn.addEventListener("click", e => {
   e.preventDefault();
   let noteTitle = titleTag.value,
