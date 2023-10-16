@@ -20,7 +20,7 @@ closeIcon.addEventListener("click", () => {
 
 function showNotes(){
   document.querySelectorAll(".note").forEach(note => note.remove());
-  notes.forEach((note) => {
+  notes.forEach((note, index) => {
     let liTag = `<li class="note">
                 <div class="details">
                   <p>${note.title}</p>
@@ -32,7 +32,7 @@ function showNotes(){
                     <i onclick="showMenu(this)" class="uil-uil-ellipsis-h"></i>
                     <ul class="menu">
                     <li><i class="uil uil-pen"></i>Edit</li>
-                    <li><i class="uil uil-trash"></i>Delete</li>
+                    <li onclick="deleteNote(${index})"><i class="uil uil-trash"></i>Delete</li>
                   </ul>
                 </div>
                 </div>
@@ -40,6 +40,12 @@ function showNotes(){
               addBox.insertAdjacentHTML("afterend", liTag);
   })
 }
+function deleteNote(noteId) {
+ notes.splice(noteId, 1); 
+ localStorage.setItem("notes", JSON.stringify(notes));
+ showNotes();
+}
+
 showNotes();
 
 function showMenu(elem) {
