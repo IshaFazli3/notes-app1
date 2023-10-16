@@ -1,7 +1,7 @@
 const addBox = document.querySelector(".add-box"),
 popupBox = document.querySelector(".popup-box"),
-popupTitle = document.querySelector(".popup-title"),
-closeIcon = document.querySelector("header i"),
+popupTitle = popupBox.querySelector("header p"),
+closeIcon = popupBox.querySelector("header i"),
 titleTag = popupBox.querySelector("input"),
 descTag = popupBox.querySelector("textarea"),
 addBtn = popupBox.querySelector("button");
@@ -16,6 +16,8 @@ addBox.addEventListener("click", () => {
 closeIcon.addEventListener("click", () => {
   titleTag.value = "";
   descTag.value = "";
+  addBtn.innerText = "Add a Note";
+  popupTitle.innerText = "Add a Note";
   popupBox.classList.remove("show");
 } );
 
@@ -59,7 +61,9 @@ function showMenu(elem) {
 }
 function updateNote(noteId, title, desc){
   addBox.click();
-  addBtn,innerText = "Update Note";
+  addBtn.innerText = "Update Note";
+  popupTitle.innerText = "Updatea  Note";
+  console.log(noteId, title, desc);
 
 console.log(noteId, title, desc);
 }
