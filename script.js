@@ -10,7 +10,9 @@ const months = ["January", "Febuary", "March", "April", "May",
 "June", "July", "August", "September", "October", "November", "December"];
 
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+let isUpdate = false, updateId;
 addBox.addEventListener("click", () => {
+  titleTag.focus();
   popupBox.classList.add("show");
 });
 closeIcon.addEventListener("click", () => {
@@ -60,12 +62,14 @@ function showMenu(elem) {
   })
 }
 function updateNote(noteId, title, desc){
+  isUpdate = true;
   addBox.click();
+  titleTag.value = title;
+  descTag.value = desc;
   addBtn.innerText = "Update Note";
   popupTitle.innerText = "Updatea  Note";
   console.log(noteId, title, desc);
 
-console.log(noteId, title, desc);
 }
 
 
@@ -84,7 +88,11 @@ addBtn.addEventListener("click", e => {
       title: noteTitle, description: noteDesc,
       date: `${month} ${day}, ${year}`
     }
-   
+   if(!isUpdate) {
+    notes.push(noteInfo); 
+   } else {
+    notes[updateId] = noteInfo;
+   }
    notes.push(noteInfo);
    localStorage.setItem("notes", JSON.stringify(notes));
    closeIcon.click();
