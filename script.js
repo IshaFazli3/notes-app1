@@ -11,6 +11,7 @@ const months = ["January", "Febuary", "March", "April", "May",
 
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 let isUpdate = false, updateId;
+
 addBox.addEventListener("click", () => {
   titleTag.focus();
   popupBox.classList.add("show");
@@ -43,9 +44,11 @@ function showNotes(){
                 </div>
               </li>`;
               addBox.insertAdjacentHTML("afterend", liTag);
-  })
+  }) 
 }
 function deleteNote(noteId) {
+  let confirmDel = confirm("Are you sure you want to delete this note?");
+  if(!confirmDel) return;
  notes.splice(noteId, 1); 
  localStorage.setItem("notes", JSON.stringify(notes));
  showNotes();
@@ -91,6 +94,7 @@ addBtn.addEventListener("click", e => {
    if(!isUpdate) {
     notes.push(noteInfo); 
    } else {
+    isUpdate = false;
     notes[updateId] = noteInfo;
    }
    notes.push(noteInfo);
