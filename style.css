@@ -53,6 +53,10 @@ settings .menu li, .popup, header {
   justify-content: space-between;
 
 }
+.note .details {
+  max-height: 165px;
+  overflow-y: auto;
+}
 .note p {
   font-size: 22px;
   font-weight: 500;
@@ -90,7 +94,7 @@ settings .menu li, .popup, header {
   right: -5px;
   transform: scale(0);
   transition: transform 0.2s ease;
-  transform-orgin: bottom right;
+  
 }
 .settings.show .menu {
   transform: scale(1);

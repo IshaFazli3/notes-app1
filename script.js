@@ -55,7 +55,6 @@ function deleteNote(noteId) {
 }
 
 showNotes();
-
 function showMenu(elem) {
   elem.parentElement.classList.add("show");
   document.addEventListener("click", e => {
@@ -64,6 +63,7 @@ function showMenu(elem) {
     }
   })
 }
+
 function updateNote(noteId, title, desc){
   isUpdate = true;
   addBox.click();
